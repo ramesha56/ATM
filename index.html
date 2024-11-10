@@ -1,12 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atm Machine🏧</title>
+    <title>ATM Interface</title>
     <script src="index.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('atm5.jpg!bw700') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #atm {
+            position: absolute;
+            right: 7%;
+            width: 350px;
+            background-color: rgba(100, 100, 100, 0.85);
+            border-radius: 8px;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(41, 212, 198, 0.822);
+        }
+
+        #display {
+            background-color: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            min-height: 60px;
+            font-size: 18px;
+        }
+
+        .button {
+            width: 80px;
+            height: 40px;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .blue {
+            background-color: #007bff;
+        }
+
+        .green {
+            background-color: #28a745;
+        }
+
+        .red {
+            background-color: #dc3545;
+        }
+
+        .yellow {
+            background-color: #ffc107;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .amount-input {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #message {
+            color: #ff6961;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <div id="atm">
+        <div id="display">Please enter your PIN to start.</div>
+        <div id="message"></div>
+
+        <input type="password" id="pinInput" placeholder="Enter PIN">
+        <button class="button blue" onclick="validatePin()">Submit PIN</button>
+
+        <div id="atmOptions" style="display: none;">
+            <button class="button blue" onclick="checkBalance()">Balance</button>
+            <button class="button green" onclick="showDeposit()">Deposit</button>
+            <button class="button red" onclick="showWithdraw()">Withdraw</button>
+            <button class="button yellow" onclick="exitATM()">Exit</button>
+        </div>
+
+
+        <div id="depositSection" class="amount-input">
+            <input type="number" id="depositAmount" placeholder="Enter deposit amount">
+            <button class="button green" onclick="deposit()">Confirm Deposit</button>
+        </div>
+
+        <div id="withdrawSection" class="amount-input">
+            <input type="number" id="withdrawAmount" placeholder="Enter withdrawal amount">
+            <button class="button red" onclick="withdraw()">Confirm Withdraw</button>
+        </div>
+    </div>
+
+
+
 </body>
+
 </html>
